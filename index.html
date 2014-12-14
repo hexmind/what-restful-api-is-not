@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- https://github.com/shower/shower/wiki/Principles -->
+<head>
+    <title>WarsawJS Presentation Template</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=792, user-scalable=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="themes/warsawjs/styles/ribbon-theme.css">
+    <link rel="stylesheet" href="themes/warsawjs/styles/warsawjs-theme.css">
+</head>
+<body class="full">
+    <header class="caption">
+        <h1>What RESTful API is not</h1>
+<!--        
+<p>We talk about JavaScript. Each month in Warsaw, Poland.</p>
+-->
+    </header>
+
+    <section class="slide front-page">
+        <div>
+            <div class="logo">
+                <img src="themes/warsawjs/pictures/logo.png">
+            </div>
+            <div class="content">
+                <h2>What RESTful&nbsp;API is&nbsp;not</h2>
+                <p>Tomasz Skowroński <a href="http://twitter.com/author"></a>
+            </div>
+        </div>
+    </section>
+    <section class="slide">
+        <div>
+            <h2>Agenda</h2>
+            <ol>
+                <li>Restful ABC</li>
+                <li>Methods</li>
+                <li>Five-Spice Rest</li>
+                <li>Interface</li>
+                <li>Levels</li>
+            </ol>
+        </div>
+    </section>
+
+<!-- https://31.media.tumblr.com/tumblr_md0d70S9sy1rsvtbb.jpg -->
+    <section class="slide">
+        <div>
+            <h2>Rest?</h2>
+            <img src="img/hammer.jpg" alt="">
+        </div>
+    </section>
+    <section class="slide">
+        <div>
+            <h2>Rest?</h2>
+     	    <ol>
+        	<li class="next">standard</li>
+		<li class="next">golden hammer</li>
+            	<li class="next">framework</li>
+            	<li class="next">protocol</li>
+                <li class="next">web 2.0 SOAP</li>
+		<li class="next">architectural pattern</li>
+                <li class="next">web 2.0 SOA</li>
+        	<li class="next">pl.wikipedia.org/wiki/rest</li>
+<!--
+        	<li class="next">golden hammer</li>
+-->
+             </ol>
+        </div>
+    </section>
+<!-- https://31.media.tumblr.com/tumblr_md0d70S9sy1rsvtbb.jpg -->
+    <section class="slide">
+        <div>
+            <h2>Rest!</h2>
+            <img src="img/rest-stop.jpg" alt="">
+        </div>
+    </section>
+<!-- http://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm -->
+    <section class="slide">
+        <div>
+            <h2>Rest!</h2>
+	    <pre>
+		<code><mark class="comment">/**</mark></code>
+		<code><mark class="comment"> * Representational State Transfer</mark></code>
+		<code><mark class="comment"> * </mark></code>
+		<code><mark class="comment"> * @author Roy Thomas Fielding</mark></code>
+		<code><mark class="comment"> * @date 2000</mark></code>
+		<code><mark class="comment"> */</mark></code>
+                <code class="next">Rest.prototype = new ArchitecturalStyle();</code>
+            </pre>
+        </div>
+    </section>
+
+<!--http://design.inf.usi.ch/sites/default/files/talks/SOA2009-REST-Patterns.pdf -->
+    <section class="slide">
+        <div>
+            <h2>Restful ABC</h2>
+            <h3>nouns + verbs + adverbs</h3>
+	    <img class="next" src="img/design_space.png" alt="">
+        </div>
+    </section>
+
+<!--METHODS -->
+<!-- https://c1.staticflickr.com/5/4075/4810872878_71e129163f_z.jpg -->
+    <section class="slide">
+        <div>
+            <h2>HTTP methods</h2>
+            <img src="img/3m.jpg" alt="">
+        </div>
+    </section>
+    <section class="slide">
+        <div>
+            <img src="img/methods/get collection.jpg" alt="">
+            <h2 class="next">GET /balls</h2>
+        </div>
+    </section>
+    <section class="slide">
+        <div>
+            <img src="img/methods/delete.jpg" alt="">
+            <h2 class="next">DELETE /balls/3</h2>
+        </div>
+    </section>
+    <section class="slide">
+        <div>
+            <img src="img/methods/post.jpg" alt="">
+            <h2 class="next">POST /balls</h2>
+        </div>
+    </section>
+    <section class="slide">
+        <div>
+            <img src="img/methods/put.jpg" alt="">
+            <h2 class="next">PUT /balls/3</h2>
+        </div>
+    </section>
+    <section class="slide">
+        <div>
+            <img src="img/methods/patch.jpg" alt="">
+            <h2 class="next">PATCH /balls/3</h2>
+        </div>
+    </section>
+    <section class="slide shout">
+        <div>
+            <h2>Rest != CRUD</h2>
+        </div>
+    </section>
+    <section class="slide">
+        <div>
+            <img src="img/methods/post game.jpg" alt="">
+            <h2 class="next">POST /balls/3/kicks</h2>
+        </div>
+    </section>
+    <section class="slide">
+        <div>
+	    <img src="img/methods/get.jpg" alt="">
+            <h2 class="next">GET /balls/3/kicks/1</h2>
+        </div>
+    </section>
+    <section class="slide shout">
+        <div>
+            <h2>Rest != CRUD<sub>2</sub></h2>
+        </div>
+    </section>
+    <section class="slide">
+        <div>
+            <h2>Read methods</h2>
+            <h3 class="next">safe, idempotent</h3>
+     	    <ul>
+            	<li>GET</li>
+        	<li>HEAD</li>
+                <li>OPTIONS</li>
+             </ul>
+        </div>
+    </section>
+    <section class="slide">
+        <div>
+            <h2>Replace methods</h2>
+            <h3 class="next">not safe, idempotent</h3>
+     	    <ul>
+            	<li>PUT</li>
+        	<li>DELETE</li>
+             </ul>
+        </div>
+    </section>
+    <section class="slide">
+        <div>
+            <h2>Edit methods</h2>
+            <h3 class="next">not safe, not idempotent</h3>
+     	    <ul>
+            	<li>POST</li>
+        	<li>PATCH</li>
+             </ul>
+        </div>
+    </section>
+
+<!-- CONSTRAINTS -->
+<!-- http://whatisrest.com/rest_constraints/index -->
+<!-- https://blog.apigee.com/detail/api_design_ruminating_over_rest -->
+<!-- http://restlet.com/blog/tag/rest-api/ -->
+    <section class="slide">
+        <div>
+            <h2>Five-Spice Rest recipe</h2>
+     	    <ol>
+            	<li>Client-server</li>
+        	<li>Stateless server</li>
+                <li>Cache</li>
+        	<li>Layered system</li>
+            	<li>Uniform interface</li>
+                <li class="next">Code-on-demand (optional)</li>
+             </ol>
+        </div>
+    </section>
+<!--
+Requests travel to and exchange information with the server. 
+The server does not store data from client requests, 
+but the client can reuse response data, sent by the server, by storing it in a local cache.
+-->
+    <section class="slide">
+        <div>
+            <h2>1-3 Client-Cache-Stateless-Server</h2>
+	    <img src="img/constraints/Client-Cache-Stateless-Server Architecture.png" alt="">
+        </div>
+    </section>
+    <section class="slide shout">
+        <div>
+            <h2>Rest != P2P, RS,RDA,EBI</h2>
+	    <h3>Client-Cache-Stateless-Server</h3>
+        </div>
+    </section>
+<!--
+Encapsulation: Each layer is also limited to communication with its immediate neighbors. 
+Encapsulation: Layers can encapsulate legacy services and protect new services from legacy clients. 
+Allow middleware layers to be added or removed without changing the technical contract between services and consumers.
+Lets us add features like a gateway, a load balancer, or a firewall to accommodate system scaling.
+The trade off is reduced performance from increased levels of indirection associated with multiple layers.
+-->
+    <section class="slide">
+        <div>
+            <h2>4 Layered System</h2>
+	    <img src="img/constraints/Layered System Architecture.png" alt="">
+        </div>
+    </section>
+    <section class="slide">
+        <div>
+            <h2>1-4 CS-SS-CC-LS advantages</h2>
+ 	    <ol>
+            	<li>Modifiability</li>
+            	<li>Scalability</li>
+            	<li>Visibility (SS, LS)</li>
+            	<li>Reliability (SS)</li>
+            	<li>Simplicity (LS)</li>
+            	<li>Performance (CC)</li>
+ 	    </ol>
+        </div>
+    </section>
+<!-- http://ajaxpatterns.org/On-Demand_Javascript -->
+<!--
+    <section class="slide">
+        <div>
+            <h2>6 Code-on-Demand</h2>
+	    <img src="img/constraints/Code-on-Demand Architecture.png" alt="">
+        </div>
+    </section>
+-->
+    <section class="slide shout">
+        <div>
+            <h2>Rest != SOA</h2>
+<!--
+	    <h3>Resource Oriented Architecture</h3>
+-->
+        </div>
+    </section>
+<!-- http://www.planetgeek.ch/2012/11/27/rest-fundamentals/ -->
+    <section class="slide">
+        <div>
+            <h2>5 Uniform interface</h2>
+	    <img src="img/interface/6.jpg" alt="">
+        </div>
+    </section>
+    <section class="slide shout">
+        <div>
+            <h2>Rest != nice urls</h2>
+        </div>
+    </section>
+    <section class="slide">
+        <div>
+            <h2>5.1 identify via&nbsp;URIs</h2>
+	    <img src="img/interface/7.jpg" alt="">
+        </div>
+    </section>
+<!--
+    <section class="slide">
+        <div>
+            <h2>5.2 describe data via&nbsp;metadata</h2>
+	    <img src="img/interface/8.jpg" alt="">
+        </div>
+    </section>
+-->
+    <section class="slide shout">
+        <div>
+            <h2>Rest != Http + Json</h2>
+        </div>
+    </section>
+    <section class="slide">
+        <div>
+            <h2>5.2 manipulate via representations</h2>
+	    <img src="img/interface/9.jpg" alt="">
+        </div>
+    </section>
+    <section class="slide">
+        <div>
+            <h2>5.3 react via methods and&nbsp;statuses</h2>
+	    <img src="img/interface/10.jpg" alt="">
+        </div>
+    </section>
+    <section class="slide shout">
+        <div>
+            <h2>Rest&nbsp;!= ok&nbsp;?&nbsp;200&nbsp;:&nbsp;500</h2>
+        </div>
+    </section>
+<!-- http://www.restapitutorial.com/httpstatuscodes.html -->
+    <section class="slide">
+        <div>
+            <h2>HTTP statuses</h2>
+	    <img src="img/statuses.png" alt="">
+        </div>
+    </section>
+
+    <section class="slide">
+        <div>
+            <h2>5.4 states and relationships via&nbsp;hypermedia</h2>
+	    <img src="img/interface/11.png" alt="">
+        </div>
+    </section>
+    <section class="slide">
+        <div>
+            <h2>5 Uniform interface advantages</h2>
+	<!-- https://dlnmh9ip6v2uc.cloudfront.net/tutorialimages/USB_Guide/USBTypes2.jpg -->
+	    <img src="img/usb.jpg" alt="">
+ 	    <ol>
+            	<li>Visibility</li>
+            	<li>Modifiability</li>
+            	<li>Simplicity</li>
+ 	    </ol>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div>
+	    <h2>What RESTful API is not</h2>
+            <h3>Richardson Maturity Model</h3>
+        </div>
+    </section>
+<!-- http://pukahuna.deviantart.com -->
+    <section class="slide">
+        <div>
+            <h2>Level 0 - No Rest</h2>
+            <img src="img/levels/final_by_pukahuna-d71mea6.gif" alt="">
+        </div>
+    </section>
+
+    <section class="slide">
+        <div>
+            <h2>Level 0 - No Rest</h2>
+            <pre>
+                <code>POST /findBikesByStation?id=1234</code>
+                <code><mark>200</mark> [1000,5234,2345]</code>
+            </pre>
+	    <pre class="next">
+                <code>POST /rentBike/1000</code>
+                <code><mark>200</mark></code>
+            </pre>
+        </div>
+    </section>
+
+    <section class="slide shout">
+        <div>
+            <h2>Rest != RPC</h2>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div>
+            <h2>Level 1 - Resources</h2>
+            <img src="img/levels/desert_background_by_pukahuna-d72ag5p.png" alt="">
+        </div>
+    </section>
+
+    <section class="slide">
+        <div>
+            <h2>Level 1 - Resources</h2>
+            <pre>
+                <code>POST /stations/1234/bikes</code>
+                <code><mark>200</mark> [1000,5234,2345]</code>
+            </pre>
+	    <pre class="next">
+                <code>POST /bikes/1000/rentBike</code>
+                <code><mark>200</mark></code>
+            </pre>
+        </div>
+    </section>
+
+    <section class="slide shout">
+        <div>
+            <h2>Rest != Http transport</h2>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div>
+            <h2>Level 2 - HTTP Verbs</h2>
+            <img src="img/levels/mountain_background_by_pukahuna-d73zlo5.png" alt="">
+        </div>
+    </section>
+
+    <section class="slide">
+        <div>
+            <h2>Level 2 - HTTP Verbs</h2>
+            <pre>
+                <code>GET /stations/1234/bikes</code>
+                <code><mark>200</mark> [1000,5234,2345]</code>
+            </pre>
+	    <pre class="next">
+                <code>POST /bikes/9999/rents</code>
+                <code><mark>200</mark> {"error":"already rented"}</code>
+            </pre>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div>
+            <h2>Level 2.5 - HTTP Verbs, Statuses</h2>
+            <pre>
+                <code>GET /stations/1234/bikes</code>
+                <code><mark>200</mark> [1000,5234,2345]</code>
+            </pre>
+	    <pre class="next">
+                <code>POST /bikes/9999/rents</code>
+                <code><mark class="important">409</mark></code>
+            </pre>
+	    <pre class="next">
+                <code>POST /bikes/1000/rents</code>
+                <code><mark>301</mark> Location: /bikes/1000/rents/7788</code>
+            </pre>
+        </div>
+    </section>
+
+    <section class="slide shout">
+        <div>
+            <h2>Rest != only resources</h2>
+            <h3>Representational State Transfer</h3>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div>
+            <h2>Level 3 - Hypermedia</h2>
+            <img src="img/levels/oceano_by_pukahuna-d7p2yk6.gif" alt="">
+        </div>
+    </section>
+
+    <section class="slide">
+        <div>
+            <h2>Level 3 - Hypermedia (HATEOAS)</h2>
+            <pre>
+                <code>POST /bikes/1000/rents</code>
+                <code><mark>301</mark> Location: /bikes/1000/rents/7788</code>
+                <code>  {"content": {"start": "2014-06-23T18:45"},</code>
+                <code>  "links":[</code>
+                <code>    { "rel": "self", "method": "get", "href": "/bikes/1000/rents/7788"},</code>
+                <code>    { "rel": "return", "method": "delete", "href": "/bikes/1000/rents/7788"},</code>
+                <code>    { "rel": "bike", "method": "get", "href": "/bikes/1000"}</code>
+                <code>  ]}</code>
+            </pre>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div>
+            <h2>Level 3 - Hypermedia Controls</h2>
+            <pre>
+                <code>POST /bikes/1000/rents</code>
+            </pre>
+            <table>
+                <tr>
+                    <th>rel</th>
+                    <th>method</th>
+                    <th>href</th>
+                </tr>
+                <tr class="next">
+                    <th>self</th>
+                    <td>get</td>
+                    <td>/bikes/1000/rents/7788</td>
+                </tr>
+                <tr class="next">
+                    <th>return</th>
+                    <td>delete</td>
+                    <td>/bikes/1000/rents/7788</td>
+                </tr>
+                <tr class="next">
+                    <th>bike</th>
+                    <td>get</td>
+                    <td>/bikes/1000</td>
+                </tr>
+            </table>
+        </div>
+    </section>
+
+<!--http://4.bp.blogspot.com/_yPMl1jV3I5Q/TKnyMjGudvI/AAAAAAAAAJE/kRdTMZDueEE/s1600/the-letter-r.jpg -->
+    <section class="slide">
+        <div>
+            <h2>Summary</h2>
+	    <img src="img/the-letter-r.jpg">
+        </div>
+    </section>
+    <section class="slide">
+        <div>
+            <h2>Summary</h2>
+     	    <ol>
+            	<li>Client-Cache-Stateless-Server-Layered architectural style</li>
+            	<li class="next">HTTP features as uniform interface
+		     <ul>
+			<li>URIs, representations, methods, statuses, hypermedia</li>
+   		     </ul>
+		</li>
+            	<li class="next">levels: from resources to hypermedia</li>
+             </ol>
+        </div>
+    </section>
+    
+    <section class="slide">
+        <div>
+            <h2>References</h2>
+            <ol class="small-font">
+		<li><strong>http://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm</strong></li>
+		<li>http://design.inf.usi.ch/sites/default/files/talks/SOA2009-REST-Patterns.pdf</li>
+		<li>http://whatisrest.com/rest_constraints/index</li>
+		<li>https://blog.apigee.com/detail/api_design_ruminating_over_rest</li>
+		<li>http://restlet.com/blog/tag/rest-api/</li>
+		<li>http://www.planetgeek.ch/2012/11/27/rest-fundamentals/</li>
+		<li>http://www.restapitutorial.com/httpstatuscodes.html</li>
+		<li>http://4.bp.blogspot.com/_yPMl1jV3I5Q/TKnyMjGudvI/AAAAAAAAAJE/kRdTMZDueEE/s1600/the-letter-r.jpg</li>
+		<li>https://c1.staticflickr.com/5/4075/4810872878_71e129163f_z.jpg</li>
+		<li>https://31.media.tumblr.com/tumblr_md0d70S9sy1rsvtbb.jpg</li>
+		<li>http://s3.amazonaws.com/churchplantmedia-cms/3strand_church_network/rest-stop.jpg</li>
+		<li>https://dlnmh9ip6v2uc.cloudfront.net/tutorialimages/USB_Guide/USBTypes2.jpg</li>
+		<li>http://pukahuna.deviantart.com</li>
+            </ol>
+        </div>
+    </section>
+
+    <section class="slide shout">
+        <div>
+            <h2>Thanks</h2>
+        </div>
+    </section>
+
+<!--
+    <section class="slide">
+        <div>
+            <h2>Plain Text on Your Slides</h2>
+
+            <p>Lorem ipsum dolor sit amet, consectetur <a href="#4">adipisicing</a> elit, sed do eiusmod tempor incididunt
+                ut labore et dolore magna aliqua. Ut enim ad minim veniam, <em>quis nostrud</em> exercitation ullamco
+                laboris <strong>nisi ut aliquip</strong> ex ea commodo consequat. Duis aute irure <i>dolor</i> in
+                reprehenderit in voluptate velit esse cillum <b>dolore</b> eu fugiat nulla pariatur. Excepteur sint occaecat
+                cupidatat non proident, sunt in <code>&lt;culpa&gt;</code> qui officia deserunt mollit anim id est laborum.
+            </p>
+        </div>
+    </section>
+
+    <section class="slide">
+        <div>
+            <h2>Agenda</h2>
+            <ol>
+                <li>Simple lists are marked with bullets</li>
+                <li>Ordered lists begin with a number</li>
+                <li>You can even nest lists one inside another
+                    <ul>
+                        <li>Or mix their types</li>
+                        <li>But do not go too far</li>
+                        <li>Otherwise audience will be bored</li>
+                    </ul>
+                </li>
+                <li>Look, seven rows exactly!</li>
+            </ol>
+        </div>
+    </section>
+    <section class="slide">
+        <div>
+            <h2>JavaScript Samples</h2>
+            <pre>
+                <code><mark class="comment">// Crockford style IIFE</mark></code>
+                <code>(function () {</code>
+                <code>  var <mark>someVar</mark> = 'value';</code>
+                <code>  console.<mark class="important">log</mark>(someVar);</code>
+                <code>}());</code>
+            </pre>
+        </div>
+    </section>
+    <section class="slide">
+        <div>
+            <h2>Even Tables</h2>
+            <table>
+                <tr>
+                    <th scope="col">Locavore</th>
+                    <th>Umami</th>
+                    <th>Helvetica</th>
+                    <th>Vegan</th>
+                </tr>
+                <tr>
+                    <th scope="row">Fingerstache</th>
+                    <td>Kale</td>
+                    <td>Chips</td>
+                    <td>Keytar</td>
+                </tr>
+                <tr>
+                    <th scope="row">Sriracha</th>
+                    <td>Gluten-free</td>
+                    <td>Ennui</td>
+                    <td>Keffiyeh</td>
+                </tr>
+                <tr>
+                    <th scope="row">Thundercats</th>
+                    <td>Jean</td>
+                    <td>Shorts</td>
+                    <td>Biodiesel</td>
+                </tr>
+                <tr>
+                    <th scope="row">Terry</th>
+                    <td>Richardson</td>
+                    <td>Swag</td>
+                    <td>Blog</td>
+                </tr>
+            </table>
+            <p>It’s good to have information organized.</p>
+        </div>
+    </section>
+    <section class="slide cover">
+        <div>
+            <img src="./themes/warsawjs/pictures/bigphoto.jpg" alt="">
+        </div>
+    </section>
+
+    <p class="badge"><a href="https://github.com/warsawjs/presentation-template">Fork me on Github</a></p>
+-->
+
+    <div class="progress">
+        <div></div>
+    </div>
+
+    <script src="vendor/gamepad/gamepad.js"></script>
+    <script src="vendor/shower/shower.js"></script>
+    <script src="vendor/shower/shower.gamepad.js"></script>
+</body>
+</html>
